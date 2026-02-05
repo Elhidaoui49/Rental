@@ -1,40 +1,101 @@
 # TOOLS.md - Local Notes
 
-Skills define _how_ tools work. This file is for _your_ specifics — the stuff that's unique to your setup.
+## GitHub
 
-## What Goes Here
+- **Username:** Elhidaoui49
+- **Main Repo:** https://github.com/Elhidaoui49/Rental.git
+- **Token:** Classic PAT (never commit to git)
+- **Setup:**
+  ```bash
+  git config user.email "Elhidaoui49@users.noreply.github.com"
+  git config user.name "Elhidaoui49"
+  ```
 
-Things like:
+## Odoo
 
-- Camera names and locations
-- SSH hosts and aliases
-- Preferred voices for TTS
-- Speaker/room names
-- Device nicknames
-- Anything environment-specific
+- **Version:** 18.0
+- **Python:** `pip install -r requirements.txt`
+- **Module Scaffold:**
+  ```bash
+  odoo scaffold <module_name> /path/to/addons
+  ```
+- **Common Commands:**
+  ```bash
+  odoo -c odoo.conf --dev all  # Dev mode
+  odoo -u rental_module -d database  # Update module
+  ```
 
-## Examples
+## Traccar (GPS)
 
-```markdown
-### Cameras
+- **Website:** https://www.traccar.org/
+- **Repo:** https://github.com/traccar/traccar
+- **API Base:** `http://<traccar-server>:8082/api`
+- **Auth:** Bearer token
+- **Key Endpoints:**
+  - `GET /api/positions` - Latest positions
+  - `GET /api/devices` - Vehicle list
+  - `GET /api/devices/{id}` - Vehicle details
+  - `GET /api/geofences` - Geofence zones
 
-- living-room → Main area, 180° wide angle
-- front-door → Entrance, motion-triggered
+## Fleet Management
 
-### SSH
+### Core Odoo Modules
+- `fleet` - Vehicle management
+- `fleet_vehicle_costs` - Cost tracking
+- `fleet_vehicle_logs_services` - Maintenance logs
 
-- home-server → 192.168.1.100, user: admin
+### Custom Modules (Planned)
+- `rental_core` - Core rental logic
+- `rental_maintenance` - Advanced maintenance
+- `rental_fuel` - Fuel tracking
+- `rental_gps` - GPS/Traccar integration
+- `rental_tco` - TCO calculations
+- `rental_report` - Advanced reporting
 
-### TTS
+## Database
 
-- Preferred voice: "Nova" (warm, slightly British)
-- Default speaker: Kitchen HomePod
+- **Engine:** PostgreSQL
+- **Connection:** Defined in `odoo.conf`
+- **Backup:**
+  ```bash
+  pg_dump -U odoo -d database > backup.sql
+  ```
+
+## Development Workflow
+
+### Git Workflow
+```bash
+# Create feature branch
+git checkout -b feature/module-name
+
+# Commit and push
+git add .
+git commit -m "feat: description"
+git push -u origin feature/module-name
 ```
 
-## Why Separate?
+### Odoo Module Development
+1. Scaffold: `odoo scaffold rental_module addons/`
+2. Define models in `models/`
+3. Create views in `views/`
+4. Add security in `security/`
+5. Update `__manifest__.py`
+6. Update module: `odoo -u rental_module -d db`
 
-Skills are shared. Your setup is yours. Keeping them apart means you can update skills without losing your notes, and share skills without leaking your infrastructure.
+## TCO Calculation
+
+**Formula:**
+```
+TCO = (Purchase Cost + Fuel + Maintenance + Insurance +
+       Tires + Heavy Costs + Residual Value)
+     / Total Mileage
+```
+
+**Odoo Fields:**
+- `fleet.vehicle.purchase_cost`
+- `fleet.vehicle.cost` (linked records)
+- `fleet.vehicle.odometer` (mileage)
 
 ---
 
-Add whatever helps you do your job. This is your cheat sheet.
+*Last updated: 2026-02-05*
