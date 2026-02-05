@@ -21,6 +21,13 @@ Exercice: [practice]
 - Provide vocabulary with context
 - Create personalized exercises
 
+**Customize learning plan:**
+- Edit plan level (A2, B1, B2)
+- Change schedule (morning/evening times)
+- Modify intensity (1h, 2h, 3h/day)
+- Skip to specific day
+- Customize themes
+
 ---
 
 ## Daily Lesson Structure
@@ -343,3 +350,145 @@ See [LESSON_CALENDAR.md](./references/LESSON_CALENDAR.md) for day-by-day lesson 
 See [GRAMMAR_EXAMPLES.md](./references/GRAMMAR_EXAMPLES.md) for more grammar examples.
 
 See [VOCAB_THEMES.md](./references/VOCAB_THEMES.md) for vocabulary lists by theme.
+
+---
+
+## Plan Customization
+
+### Edit Plan Commands
+
+**When user sends `/edit_plan`:**
+
+1. **Identify parameters:**
+   - Level: A2, B1, B2
+   - Intensity: 1h, 2h, 3h/day
+   - Schedule: morning time, evening time
+   - Theme: business, health, travel, etc.
+   - Skip to: specific day
+
+2. **Generate customized plan:**
+   - Adjust grammar progression based on level
+   - Scale vocabulary lists based on intensity
+   - Modify notification times
+   - Skip to requested day
+
+**Example responses:**
+
+```
+✅ Plan modifié !
+
+Nouveau niveau: B1
+Intensité: 2h/jour
+Notifications: 8h00 / 21h00
+
+Prochaine leçon: Jour 5 — Futur proche
+```
+
+```
+⚠️ Saut au jour 20
+
+Vous sauterez: Jours 6-19 (3 semaines de contenu)
+
+Continuer ? Oui/Non
+```
+
+### Schedule Commands
+
+**When user sends `/schedule`:**
+
+Show current settings and allow modification:
+
+```
+📅 Horaire Actuel
+
+Matin: 9h00 (Leçon du jour)
+Soir: 20h00 (Rappel de pratique)
+
+Temps d'étude: 2h/jour
+
+Modifier: /schedule matin 8h soir 21h
+```
+
+### Advanced Customization
+
+**User request examples:**
+
+1. **Specific exam goal:**
+   "I want to pass DELF B2 in 3 months"
+   → Adjust plan to include B2 exam preparation
+
+2. **Business focus:**
+   "I want to learn business French"
+   → Prioritize business vocabulary themes
+
+3. **Short lessons:**
+   "I have only 30 min/day"
+   → Scale down to 30 min lessons
+
+4. **Regional variant:**
+   "I want Quebec French"
+   → Adjust vocabulary and examples
+
+**Response template:**
+
+```
+🎯 Plan Personnalisé
+
+Objectif: DELF B2 en 3 mois
+Thème: Business international
+Intensité: 2h/jour
+
+Prochaines leçons:
+- Mois 1: Grammar B1
+- Mois 2: Business vocabulary
+- Mois 3: B2 exam prep
+
+Commencer maintenant ? Oui/Non
+```
+
+### Reset Plan
+
+**When user sends `/reset`:**
+
+Confirm and reset to Day 1:
+
+```
+🔄 Réinitialiser le Plan ?
+
+Cela va:
+- Retourner au jour 1
+- Supprimer tout progrès enregistré
+- Recommencer avec le niveau A2
+
+Confirmer: Oui/Non
+```
+
+---
+
+## Progress Tracking
+
+**Track metrics:**
+
+1. **Days completed**
+2. **Grammar topics covered**
+3. **Vocabulary words learned**
+4. **Exercises completed**
+5. **Speaking time accumulated**
+
+**Display progress on `/progress` command:**
+
+```
+📊 Ton Progrès
+
+Niveau: B1 (Jour 15/90)
+Jours complétés: 15
+Grammaire: 8/20 thèmes couverts
+Vocabulaire: 150 mots appris
+Exercices: 45 complétés
+Temps de parole: 5 heures
+
+Objectif B1: 35% complété
+Prochain objectif: B1 solide (Jour 30)
+
+Continue comme ça ! 💪
+```

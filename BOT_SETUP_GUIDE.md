@@ -47,6 +47,9 @@ Le bot enverra 2 messages par jour:
 | `/grammar` | Règle de grammaire |
 | `/exercise` | Exercice de pratique |
 | `/progress` | Voir ton progrès |
+| `/edit_plan` | Modifier le plan d'apprentissage |
+| `/schedule` | Voir/Modifier l'horaire des notifications |
+| `/reset` | Recommencer le plan (retour jour 1) |
 
 ---
 
@@ -133,7 +136,89 @@ Consistances > Perfection. Parle avant d'être "prêt" !
 
 ---
 
-## 7. Problèmes et Solutions
+## 7. Modifier le Plan d'Apprentissage
+
+### Commande `/edit_plan`
+
+Pour modifier ton plan, envoie:
+```
+/edit_plan
+```
+
+**Options:**
+
+**1. Changer le niveau:**
+```
+/edit_plan niveau B1
+/edit_plan niveau B2
+```
+
+**2. Changer l'intensité:**
+```
+/edit_plan 2h
+/edit_plan 1h
+```
+
+**3. Sauter des jours:**
+```
+/edit_plan jour 10
+/edit_plan jour 20
+```
+
+**4. Changer l'horaire des notifications:**
+```
+/edit_plan matin 8h
+/edit_plan soir 21h
+```
+
+**5. Personnaliser les thèmes:**
+```
+/edit_plan thème business
+/edit_plan thème santé
+```
+
+### Commande `/schedule`
+
+Pour voir ou modifier l'horaire:
+```
+/schedule
+```
+
+**Réponses:**
+- Notification matinale: 9h00 (ou modifié)
+- Notification du soir: 20h00 (ou modifié)
+- Temps total d'étude: 2h/jour (ou modifié)
+
+**Modifier l'horaire:**
+```
+/schedule matin 8h soir 21h
+```
+
+---
+
+## 8. Personnalisation Avancée
+
+Si tu veux un plan complètement personnalisé, dis-moi:
+
+**Options:**
+1. **Objectif spécifique:** "Je veux passer un examen DELF B2 en 3 mois"
+2. **Thème spécifique:** "Je veux apprendre le français pour le business"
+3. **Format spécifique:** "Je veux des leçons de 30 minutes, pas 1 heure"
+4. **Pays/Région:** "Je veux apprendre le français de France / du Québec"
+
+**Exemple de demande:**
+```
+/edit_plan
+Objectif: DELF B2 en 3 mois
+Thème: Business international
+Format: Leçons courtes (30 min)
+```
+
+Je vais créer un plan personnalisé pour toi.
+
+---
+
+## 9. Problèmes et Solutions
 
 **Problème: Bot ne répond pas**
 - Solution: Vérifie que le token est correct
