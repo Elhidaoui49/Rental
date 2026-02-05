@@ -61,4 +61,14 @@
 
 ---
 
+### Telegram Bot — French Learning
+
+- **Bot name:** DoxoFrenchBot (@daily_doxo_bot)
+- **Token:** `8599447054:AAFM6Xv-Q2TMLS8j6jhOITxFU6os7KT4vJo`
+- **Purpose:** Daily French lessons (A2 → B2 in 3-5 months)
+- **Schedule:** Morning (9:00 AM) + Evening (8:00 PM) notifications
+- **Commands:** /start, /lesson, /vocab, /grammar, /exercise, /progress
+
+---
+
 *Last updated: 2026-02-05*
